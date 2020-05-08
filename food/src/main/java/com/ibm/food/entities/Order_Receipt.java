@@ -5,7 +5,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Order {
+public class Order_Receipt {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
      int id;
@@ -21,7 +21,7 @@ public class Order {
 	String location;
 	int bill;
 	int Rating;
-	public Order(int id, String customer, String name, String location, int bill, int rating) {
+	public Order_Receipt(int id, String customer, String name, String location, int bill, int rating) {
 		super();
 		this.id = id;
 		this.customer = customer;
@@ -30,7 +30,7 @@ public class Order {
 		this.bill = bill;
 		Rating = rating;
 	}
-	public Order() {
+	public Order_Receipt() {
 		super();
 	
 	}
@@ -66,7 +66,7 @@ public class Order {
 	}
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", customer=" + customer + ", name=" + name + ", location=" + location + ", bill="
+		return "Order_Receipt [id=" + id + ", customer=" + customer + ", name=" + name + ", location=" + location + ", bill="
 				+ bill + ", Rating=" + Rating + "]";
 	}
 	

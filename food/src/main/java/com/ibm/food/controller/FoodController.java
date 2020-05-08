@@ -27,42 +27,42 @@ public class FoodController {
 	FoodService foodService;
 	
 //POST AND GET MAPPING OF RESTRAUNT	
-	@PostMapping("/restraunt")
-	public ResponseEntity<Void> addRestraunt(@RequestBody Restraunt restraunt) {
-		foodService.addRestraunt(restraunt);
+	@PostMapping("/restaurant")
+	public ResponseEntity<Void> addRestaurant(@RequestBody Restaurants restaurant) {
+		foodService.addRestaurant(restaurant);
 		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
 		return re;
 }
 
-	@GetMapping("/restraunt")
-	public List<Restraunt> findAllRestraunt(){
-		return foodService.findAllRestraunt();
+	@GetMapping("/restaurant")
+	public List<Restaurants> findAllRestaurant(){
+		return foodService.findAllRestaurant();
 	}
 	
-	@GetMapping("/restraunt/{name}")
-	public Restraunt findRestrauntByName(@PathVariable("name") String name){
-		return foodService.findRestrauntByName(name);
+	@GetMapping("/restaurant/{name}")
+	public Restaurants findRestaurantByName(@PathVariable("name") String name){
+		return foodService.findRestaurantByName(name);
 	}
-	@GetMapping("/restraunt/{id}")
-	public Restraunt findRestrauntById(@PathVariable("id") int id){
+	@GetMapping("/restaurant/{id}")
+	public Restaurants findRestaurantById(@PathVariable("id") int id){
 
-		Restraunt restraunt = foodService.findRestrauntById(id);
-		return restraunt;
+		Restaurants restaurant = foodService.findRestaurantById(id);
+		return restaurant;
 	}
 
 //UPDATE MAPPING FOR RESTRAUNT
-	@PutMapping("/updateRestraunt")
-public ResponseEntity<Void> updateRestraunt(@RequestBody Restraunt restraunt){
-		foodService.updateRestraunt(restraunt);
+	@PutMapping("/updateRestaurant")
+public ResponseEntity<Void> updateRestaurant(@RequestBody Restaurants restaurant){
+		foodService.updateRestaurant(restaurant);
 	ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
 	return re;
 	}
 //DELETE MAPPING FOR RESTRAUNT
-	@RequestMapping(path="/restraunt/{id}" , method=RequestMethod.DELETE)
-	public ResponseEntity<Void> deleteEmployee(@PathVariable("id") int id){
+	@RequestMapping(path="/restaurant/{id}" , method=RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteRestaurant(@PathVariable("id") int id){
 		ResponseEntity<Void> re= null;
 		try{
-			foodService.deleteRestrauntById(id);
+			foodService.deleteRestaurantById(id);
 			re = new ResponseEntity<>(HttpStatus.OK);
 			
 		}
@@ -73,11 +73,11 @@ public ResponseEntity<Void> updateRestraunt(@RequestBody Restraunt restraunt){
 		
 	}
 	
-	@RequestMapping(path="/restraunt/{name}" , method=RequestMethod.DELETE)
-	public ResponseEntity<Void> deleteEmployee(@PathVariable("name") String name){
+	@RequestMapping(path="/restaurant/{name}" , method=RequestMethod.DELETE)
+	public ResponseEntity<Void> deleteResturant(@PathVariable("name") String name){
 		ResponseEntity<Void> re= null;
 		try{
-			foodService.deleteRestrauntByName(name);
+			foodService.deleteRestaurantByName(name);
 			re = new ResponseEntity<>(HttpStatus.OK);
 			
 		}
@@ -89,14 +89,14 @@ public ResponseEntity<Void> updateRestraunt(@RequestBody Restraunt restraunt){
 //DELETE MAPPING FOR DISHES
 //POST AND GET MAPPING FOR ORDER
 	@PostMapping("/order")
-	public ResponseEntity<Void> addOrder(@RequestBody Order order) {
+	public ResponseEntity<Void> addOrder(@RequestBody Order_Receipt order) {
 		foodService.addOrder(order);
 		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
 		return re;
 }
 
 	@GetMapping("/order")
-	public List<Order> findAllOrder(){
+	public List<Order_Receipt> findAllOrder(){
 		return foodService.findAllOrder();
 	}
 	//POST AND GET MAPPING FOR DONATE

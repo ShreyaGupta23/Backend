@@ -4,9 +4,9 @@ import com.ibm.food.entities.*;
 
 
 
-public interface FoodRepository extends JpaRepository<Restraunt, Integer>{
+public interface FoodRepository extends JpaRepository<Restaurants, Integer>{
 
-	Restraunt findByName(String name);
-    Restraunt findById(int id);
+	Restaurants findByName(String name);
+    Restaurants findById(int id);
 	void deleteByName(String name);
 }

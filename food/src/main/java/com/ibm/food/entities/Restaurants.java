@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class Restraunt {
+public class Restaurants {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
      int id;
@@ -29,7 +29,7 @@ public class Restraunt {
 	String name;
 	String type;
 	String location;
-	int contact;
+	String contact;
 	int accessed;
 	String available;
 	
@@ -39,12 +39,12 @@ public class Restraunt {
 	@OneToMany(cascade=CascadeType.ALL)
 	List<Dish> dishes;
 
-	public Restraunt() {
+	public Restaurants() {
 		super();
 	
 	}
 
-	public Restraunt(int id, String name, String type, String location, int contact, int accessed, String available,
+	public Restaurants(int id, String name, String type, String location, String contact, int accessed, String available,
 			Blob image, List<Dish> dishes) {
 		super();
 		this.id = id;
@@ -82,11 +82,11 @@ public class Restraunt {
 		this.location = location;
 	}
 
-	public int getContact() {
+	public String getContact() {
 		return contact;
 	}
 
-	public void setContact(int contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 
@@ -124,7 +124,7 @@ public class Restraunt {
 
 	@Override
 	public String toString() {
-		return "Restraunt [id=" + id + ", name=" + name + ", type=" + type + ", location=" + location + ", contact="
+		return "Restaurants [id=" + id + ", name=" + name + ", type=" + type + ", location=" + location + ", contact="
 				+ contact + ", accessed=" + accessed + ", available=" + available + ", image=" + image + ", dishes="
 				+ dishes + "]";
 	}

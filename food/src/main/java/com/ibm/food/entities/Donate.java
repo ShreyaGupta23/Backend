@@ -24,7 +24,7 @@ public class Donate {
 	String helper;
 	String location;
 	String description;
-	int contact;
+	String contact;
 	String email;
 	
 	@Lob
@@ -35,7 +35,7 @@ public class Donate {
 		
 	}
 
-	public Donate(int id, String helper, String location, String description, int contact, String email,
+	public Donate(int id, String helper, String location, String description, String contact, String email,
 			Blob image_logo) {
 		super();
 		this.id = id;
@@ -71,11 +71,11 @@ public class Donate {
 		this.description = description;
 	}
 
-	public int getContact() {
+	public String getContact() {
 		return contact;
 	}
 
-	public void setContact(int contact) {
+	public void setContact(String contact) {
 		this.contact = contact;
 	}
 
