@@ -26,9 +26,9 @@ public class Donate {
 	String description;
 	String contact;
 	String email;
-	
-	@Lob
-	Blob image_logo;
+	String image_logo;
+//	@Lob
+//	Blob image_logo;
 
 	public Donate() {
 		super();
@@ -36,7 +36,7 @@ public class Donate {
 	}
 
 	public Donate(int id, String helper, String location, String description, String contact, String email,
-			Blob image_logo) {
+			String image_logo) {
 		super();
 		this.id = id;
 		this.helper = helper;
@@ -87,11 +87,11 @@ public class Donate {
 		this.email = email;
 	}
 
-	public Blob getImage_logo() {
+	public String getImage_logo() {
 		return image_logo;
 	}
 
-	public void setImage_logo(Blob image_logo) {
+	public void setImage_logo(String image_logo) {
 		this.image_logo = image_logo;
 	}
 

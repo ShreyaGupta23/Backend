@@ -32,9 +32,9 @@ public class Restaurants {
 	String contact;
 	int accessed;
 	String available;
-	
-	@Lob
-	Blob image;
+	String image;
+	//@Lob
+	//Blob image;
 	
 	@OneToMany(cascade=CascadeType.ALL)
 	List<Dish> dishes;
@@ -45,7 +45,7 @@ public class Restaurants {
 	}
 
 	public Restaurants(int id, String name, String type, String location, String contact, int accessed, String available,
-			Blob image, List<Dish> dishes) {
+			String image, List<Dish> dishes) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -106,11 +106,11 @@ public class Restaurants {
 		this.available = available;
 	}
 
-	public Blob getImage() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImage(Blob image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 

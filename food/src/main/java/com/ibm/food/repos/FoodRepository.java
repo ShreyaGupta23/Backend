@@ -9,4 +9,5 @@ public interface FoodRepository extends JpaRepository<Restaurants, Integer>{
 	Restaurants findByName(String name);
     Restaurants findById(int id);
 	void deleteByName(String name);
+	Restaurants findRestrauntByLocation(String location);
 }

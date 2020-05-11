@@ -24,8 +24,9 @@ public class Dish {
 	String name;
 	String dishName;
 	
-	@Lob
-	Blob dishImage;
+	//@Lob
+	//Blob dishImage;
+	 String dishImage;
 	
 	int cost;
 	String suggestion;
@@ -33,7 +34,7 @@ public class Dish {
 		super();
 		
 	}
-	public Dish(int id, String name, String dishName, Blob dishImage, int cost, String suggestion) {
+	public Dish(int id, String name, String dishName, String dishImage, int cost, String suggestion) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -54,10 +55,10 @@ public class Dish {
 	public void setDishName(String dishName) {
 		this.dishName = dishName;
 	}
-	public Blob getDishImage() {
+	public String getDishImage() {
 		return dishImage;
 	}
-	public void setDishImage(Blob dishImage) {
+	public void setDishImage(String dishImage) {
 		this.dishImage = dishImage;
 	}
 	public int getCost() {

@@ -49,6 +49,13 @@ public class FoodController {
 		Restaurants restaurant = foodService.findRestaurantById(id);
 		return restaurant;
 	}
+	
+	@GetMapping("/restaurant/{location}")
+	public Restaurants findRestaurantByLocation(@PathVariable("location") String location){
+
+		Restaurants restaurant = foodService.findRestaurantByLocation(location);
+		return restaurant;
+	}
 
 //UPDATE MAPPING FOR RESTRAUNT
 	@PutMapping("/updateRestaurant")

@@ -41,7 +41,10 @@ public class FoodService {
 	public Restaurants findRestaurantById(int id) {
 		return foodRepository.findById(id);
 	}
-	
+	public Restaurants findRestaurantByLocation(String location) {
+		
+		return foodRepository.findRestrauntByLocation(location);
+	}
 	//UPDATE METHODS FOR RESTRAUNT	
 	@Transactional
 	public void updateRestaurant(Restaurants updatedRestaurant) {
@@ -86,5 +89,6 @@ return donateRepository.save(donate);
 		System.out.println(donation);
 		return donation;
 	}
+	
 
 }
