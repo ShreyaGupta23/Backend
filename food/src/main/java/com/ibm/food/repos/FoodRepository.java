@@ -1,4 +1,6 @@
 package com.ibm.food.repos;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.ibm.food.entities.*;
 
@@ -6,8 +8,8 @@ import com.ibm.food.entities.*;
 
 public interface FoodRepository extends JpaRepository<Restaurants, Integer>{
 
-	Restaurants findByName(String name);
+	List<Restaurants> findByName(String name);
     Restaurants findById(int id);
 	void deleteByName(String name);
-	Restaurants findRestrauntByLocation(String location);
+	List<Restaurants> findRestrauntByLocation(String location);
 }

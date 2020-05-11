@@ -35,13 +35,13 @@ public class FoodService {
 		System.out.println(restaurants);
 		return restaurants;
 	}
-	public Restaurants findRestaurantByName(String name) {
+	public List<Restaurants> findRestaurantByName(String name) {
 		return foodRepository.findByName(name);
 	}
 	public Restaurants findRestaurantById(int id) {
 		return foodRepository.findById(id);
 	}
-	public Restaurants findRestaurantByLocation(String location) {
+	public List<Restaurants> findRestaurantByLocation(String location) {
 		
 		return foodRepository.findRestrauntByLocation(location);
 	}

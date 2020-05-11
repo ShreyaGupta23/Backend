@@ -39,21 +39,21 @@ public class FoodController {
 		return foodService.findAllRestaurant();
 	}
 	
-	@GetMapping("/restaurant/{name}")
-	public Restaurants findRestaurantByName(@PathVariable("name") String name){
+	@GetMapping("/restaurant/name/{name}")
+	public List<Restaurants> findRestaurantByName(@PathVariable("name") String name){
 		return foodService.findRestaurantByName(name);
 	}
-	@GetMapping("/restaurant/{id}")
+	@GetMapping("/restaurant/id/{id}")
 	public Restaurants findRestaurantById(@PathVariable("id") int id){
 
 		Restaurants restaurant = foodService.findRestaurantById(id);
 		return restaurant;
 	}
 	
-	@GetMapping("/restaurant/{location}")
-	public Restaurants findRestaurantByLocation(@PathVariable("location") String location){
+	@GetMapping("/restaurant/location/{location}")
+	public List<Restaurants> findRestaurantByLocation(@PathVariable("location") String location){
 
-		Restaurants restaurant = foodService.findRestaurantByLocation(location);
+		List<Restaurants> restaurant = foodService.findRestaurantByLocation(location);
 		return restaurant;
 	}
 
