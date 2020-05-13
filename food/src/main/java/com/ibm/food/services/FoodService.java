@@ -3,7 +3,11 @@ package com.ibm.food.services;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ibm.food.entities.AdminRestaurant;
+import com.ibm.food.entities.Blog;
 import com.ibm.food.entities.Donate;
+import com.ibm.food.entities.Events;
+import com.ibm.food.entities.Feedback;
 import com.ibm.food.entities.Order_Receipt;
 import com.ibm.food.entities.Restaurants;
 import com.ibm.food.repos.*;
@@ -24,6 +28,18 @@ public class FoodService {
 	
 	@Autowired
 	OrderRepository orderRepository;
+	
+	@Autowired
+	FeedbackRepository feedbackRepository;
+	
+	@Autowired
+	AdminRepository adminRepository;
+	
+	@Autowired
+	BlogRepository blogRepository;
+	
+	@Autowired
+	EventRepository eventRepository;
 	
 //POST AND GET METHODS OF RESTRAUNTS
 	public Restaurants addRestaurant(Restaurants restaurant) {
@@ -90,5 +106,87 @@ return donateRepository.save(donate);
 		return donation;
 	}
 	
+	//POST AND GET METHODS FOR Feedback
+	public Feedback addFeedback(Feedback feedback) {
+	return feedbackRepository.save(feedback);	
+		
+	}
+	public List<Feedback> findAllFeedback() {
+		List<Feedback> feedback=feedbackRepository.findAll();
+		System.out.println(feedback);
+		return feedback;
+	}
+	
+	//POST AND GET METHODS FOR AdminRestaurant
+	public AdminRestaurant addAdminRestaurant(AdminRestaurant admin) {
+		return adminRepository.save(admin);
+		
+	}
+	public List<AdminRestaurant> findAllAdminRestaurant() {
+		List<AdminRestaurant> admin=adminRepository.findAll();
+		System.out.println(admin);
+		return admin;
+	}
+	
+	//UPDATE METHODS FOR AdminRestaurant
+	
+	@Transactional
+	public void updateAdminRestaurant(AdminRestaurant updatedadmin) {
+		AdminRestaurant admin=adminRepository.findById(updatedadmin.getId());
+		admin.setName(updatedadmin.getName());
+		admin.setOwner(updatedadmin.getOwner());
+		admin.setLocation(updatedadmin.getLocation());
+		admin.setContact(updatedadmin.getContact());
+		admin.setAccessed(updatedadmin.getAccessed());
+		admin.setAvailable(updatedadmin.getAvailable());
+		admin.setAccount(updatedadmin.getAccount());
+	}
+// DELETE  METHODS FOR AdminRestaurant
+	public void deleteAdminRestaurantById(int id) {
+		adminRepository.deleteById(id);
+		
+	}
+	
+	
+	//POST AND GET METHODS FOR BLOG
+	public Blog addBlog(Blog blog) {
+		return blogRepository.save(blog);	
+		
+	}
+	public List<Blog> findAllBlog() {
+		List<Blog> blog=blogRepository.findAll();
+		System.out.println(blog);
+		return blog;
+	}
+	//POST AND GET METHODS FOR EVENTS
+	public Events addEvent(Events event) {
+		return eventRepository.save(event);
+		
+	}
+	public List<Events> findAllEvent() {
+		List<Events> event=eventRepository.findAll();
+		System.out.println(event);
+		return event;
+	
+	}
+	public List<Events> findEventByName(String name) {
+		return eventRepository.findByName(name);
+	}
+	
+	//UPDATE METHODS FOR EVENTS
+	
+	@Transactional
+	public void updateEvent(Events updatedevent) {
+		Events et=eventRepository.findById(updatedevent.getId());
+		et.setName(updatedevent.getName());
+		et.setCoupon(updatedevent.getCoupon());
+		et.setType(updatedevent.getType());
+	}
+	//DELETE METHODS FOR EVENTS
+	public void deleteEventById(int id) {
+		eventRepository.deleteById(id);
+		
+	}
 
+	
 }

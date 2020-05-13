@@ -118,4 +118,104 @@ public ResponseEntity<Void> updateRestaurant(@RequestBody Restaurants restaurant
 	public List<Donate> findAllDonate(){
 		return foodService.findAllDonate();
 	}
+//POST AND GET MAPPING FOR Feedback
+	@PostMapping("/feedback/make")
+	public ResponseEntity<Void> addFeedback(@RequestBody Feedback feedback) {
+		foodService.addFeedback(feedback);
+		ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+		return re;
+}
+
+	@GetMapping("/feedback/allfeeds")
+	public List<Feedback> findAllFeedback(){
+		return foodService.findAllFeedback();
+	}
+	
+	//POST AND GET MAPPING FOR AdminRestaurant
+		@PostMapping("/admin/restaurant")
+		public ResponseEntity<Void> addAdminRestaurant(@RequestBody AdminRestaurant admin) {
+			foodService.addAdminRestaurant(admin);
+			ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+			return re;
+	}
+
+		@GetMapping("/admin/restaurant")
+		public List<AdminRestaurant> findAllAdminRestaurant(){
+			return foodService.findAllAdminRestaurant();
+		}
+// UPDATE  MAPPING FOR AdminRestaurant
+		@PutMapping("/admin/updateRestaurant")
+		public ResponseEntity<Void> updateAdminRestaurant(@RequestBody AdminRestaurant admin){
+				foodService.updateAdminRestaurant(admin);
+			ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
+			return re;
+			}
+		//DELETE MAPPING FOR ADMINRESTRAUNT
+		@RequestMapping(path="/adminRestaurant/{id}" , method=RequestMethod.DELETE)
+		public ResponseEntity<Void> deleteAdminRestaurant(@PathVariable("id") int id){
+			ResponseEntity<Void> re= null;
+			try{
+				foodService.deleteAdminRestaurantById(id);
+				re = new ResponseEntity<>(HttpStatus.OK);
+				
+			}
+			catch(EmptyResultDataAccessException e){
+				re = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+			return re;
+			
+		}
+		//POST AND GET MAPPING FOR BLOG
+		
+		@PostMapping("/blog")
+		public ResponseEntity<Void> addBlog(@RequestBody Blog blog) {
+			foodService.addBlog(blog);
+			ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+			return re;
+	}
+
+		@GetMapping("/blog")
+		public List<Blog> findAllBlog(){
+			return foodService.findAllBlog();
+		}
+		
+		//POST AND GET MAPPING FOR EVENTS
+		@PostMapping("/events/create")
+		public ResponseEntity<Void> addEvent(@RequestBody Events event) {
+			foodService.addEvent(event);
+			ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+			return re;
+	}
+
+		@GetMapping("/events/allevents")
+		public List<Events> findAllEvent(){
+			return foodService.findAllEvent();
+		}
+		
+		@GetMapping("/event/name/{name}")
+		public List<Events> findEventByName(@PathVariable("name") String name){
+			return foodService.findEventByName(name);
+		}
+		// UPDATE  MAPPING FOR EVENT
+				@PutMapping("/event/updateEvent")
+				public ResponseEntity<Void> updateEvent(@RequestBody Events event){
+						foodService.updateEvent(event);
+					ResponseEntity<Void> re = new ResponseEntity<>(HttpStatus.ACCEPTED);
+					return re;
+					}
+	//DELETE MAPPING FOR EVENTS
+				@RequestMapping(path="/event/{id}" , method=RequestMethod.DELETE)
+				public ResponseEntity<Void> deleteEvent(@PathVariable("id") int id){
+					ResponseEntity<Void> re= null;
+					try{
+						foodService.deleteEventById(id);
+						re = new ResponseEntity<>(HttpStatus.OK);
+						
+					}
+					catch(EmptyResultDataAccessException e){
+						re = new ResponseEntity<>(HttpStatus.NOT_FOUND);
+					}
+					return re;
+					
+				}
 }
