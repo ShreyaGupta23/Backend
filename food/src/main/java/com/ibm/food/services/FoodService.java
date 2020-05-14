@@ -10,6 +10,7 @@ import com.ibm.food.entities.Events;
 import com.ibm.food.entities.Feedback;
 import com.ibm.food.entities.Order_Receipt;
 import com.ibm.food.entities.Restaurants;
+import com.ibm.food.entities.User;
 import com.ibm.food.repos.*;
 
 
@@ -40,6 +41,9 @@ public class FoodService {
 	
 	@Autowired
 	EventRepository eventRepository;
+	
+	@Autowired
+	UserRepository userRepository;
 	
 //POST AND GET METHODS OF RESTRAUNTS
 	public Restaurants addRestaurant(Restaurants restaurant) {
@@ -186,6 +190,16 @@ return donateRepository.save(donate);
 	public void deleteEventById(int id) {
 		eventRepository.deleteById(id);
 		
+	}
+//POST AND GET METHODS FOR USER
+	public User addUser(User user) {
+		return userRepository.save(user);
+		
+	}
+	public List<User> findAllUser() {
+		List<User> user=userRepository.findAll();
+		System.out.println(user);
+		return user;
 	}
 
 	

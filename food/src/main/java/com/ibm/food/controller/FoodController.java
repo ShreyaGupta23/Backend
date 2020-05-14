@@ -218,4 +218,16 @@ public ResponseEntity<Void> updateRestaurant(@RequestBody Restaurants restaurant
 					return re;
 					
 				}
+//POST AND GET MAPPING FOR USERS
+				@PostMapping("/user/register")
+				public ResponseEntity<Void> addUser(@RequestBody User user) {
+					foodService.addUser(user);
+					ResponseEntity<Void> re = new ResponseEntity<Void>(HttpStatus.CREATED);
+					return re;
+			}
+
+				@GetMapping("/user")
+				public List<User> findAllUser(){
+					return foodService.findAllUser();
+				}		
 }
