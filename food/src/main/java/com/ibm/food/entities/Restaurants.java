@@ -36,7 +36,7 @@ public class Restaurants {
 	//@Lob
 	//Blob image;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.MERGE)
 	List<Dish> dishes;
 
 	public Restaurants() {
